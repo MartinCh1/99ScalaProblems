@@ -39,5 +39,5 @@ var lost = List(4,8,15,16,23,42)                  //> lost  : List[Int] = List(4
 	  }
 	  lastIter(l.tail, l.head)
   }                                               //> last: (l: List[Int])Int
-	last (List(4,8,15,16,23,42))              //> res0: Int = 42
+	last (lost)              //> res0: Int = 42
 ```

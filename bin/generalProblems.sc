@@ -12,7 +12,7 @@ var lost = List(4,8,15,16,23,42)                  //> lost  : List[Int] = List(4
 	  }
 	  lastIter(l.tail, l.head)
   }                                               //> last: (l: List[Int])Int
-	last (List(4,8,15,16,23,42))              //> res0: Int = 42
+	last(lost)                                //> res0: Int = 42
  
  
 //P02: Find the lust but one element of a list
@@ -221,21 +221,21 @@ var lost = List(4,8,15,16,23,42)                  //> lost  : List[Int] = List(4
 			}
 	}                                         //> randomSelect: (n: Int, ls: List[Any])List[Any]
 	
-	randomSelect(2,lost)                      //> res22: List[Any] = List(16, 4)
+	randomSelect(2,lost)                      //> res22: List[Any] = List(15, 8)
 	
 //P24: Lotto: Draw N different random numbers from the set 1..M
 	def lotto(n: Int, m: Int): List[Any] = {
 		randomSelect(n, List.range(1, m+1))
 	}                                         //> lotto: (n: Int, m: Int)List[Any]
 	
-	lotto(6,6)                                //> res23: List[Any] = List(4, 5, 3, 1, 2, 6)
+	lotto(6,6)                                //> res23: List[Any] = List(5, 1, 4, 6, 3, 2)
 	
 //P25: Generate a random permutation of the elements of a list
 	def randomPermute(ls: List[Any]):List[Any] ={
 		randomSelect (ls.length,ls)
 	}                                         //> randomPermute: (ls: List[Any])List[Any]
 	  
-	randomPermute(lost)                       //> res24: List[Any] = List(16, 4, 15, 8, 23, 42)
+	randomPermute(lost)                       //> res24: List[Any] = List(42, 16, 8, 23, 15, 4)
 	
 //P26: Generate the combinatios of K distinct objects chosen from the elements of a list
 	def flatMapSublists[A,B](ls: List[A])(f: (List[A])=>List[B]): List[B] = ls match {
