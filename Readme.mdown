@@ -4,7 +4,7 @@
 
 This repository is a personal solution of 99 scala problems http://aperiodic.net/phil/scala/s-99/
 
-# Types
+## Types
 
 * Working with lists
 * Arithmetic
@@ -24,7 +24,8 @@ This repository is a personal solution of 99 scala problems http://aperiodic.net
 
 | Name           | Last Problem | Description                        |
 | -------------- | ------------- | -----------------------------------|
-|`Initial`|P26| List |
+|Initial|P26| List |
+|1-2-17|P32| -p27, -p28|
 
 
 ## Example

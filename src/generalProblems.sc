@@ -1,6 +1,11 @@
 //http://aperiodic.net/phil/scala/s-99/
 
 object generalProblems {
+
+
+//------------------------WORKING WITH LIST-------------------------------
+
+
 var lost = List(4,8,15,16,23,42)                  //> lost  : List[Int] = List(4, 8, 15, 16, 23, 42)
 //P01: Find the last element of a list
 // last(List(1,1,2,3,5,8))
@@ -221,21 +226,21 @@ var lost = List(4,8,15,16,23,42)                  //> lost  : List[Int] = List(4
 			}
 	}                                         //> randomSelect: (n: Int, ls: List[Any])List[Any]
 	
-	randomSelect(2,lost)                      //> res22: List[Any] = List(15, 8)
+	randomSelect(2,lost)                      //> res22: List[Any] = List(42, 16)
 	
 //P24: Lotto: Draw N different random numbers from the set 1..M
 	def lotto(n: Int, m: Int): List[Any] = {
 		randomSelect(n, List.range(1, m+1))
 	}                                         //> lotto: (n: Int, m: Int)List[Any]
 	
-	lotto(6,6)                                //> res23: List[Any] = List(5, 1, 4, 6, 3, 2)
+	lotto(6,6)                                //> res23: List[Any] = List(2, 4, 6, 5, 1, 3)
 	
 //P25: Generate a random permutation of the elements of a list
 	def randomPermute(ls: List[Any]):List[Any] ={
 		randomSelect (ls.length,ls)
 	}                                         //> randomPermute: (ls: List[Any])List[Any]
 	  
-	randomPermute(lost)                       //> res24: List[Any] = List(42, 16, 8, 23, 15, 4)
+	randomPermute(lost)                       //> res24: List[Any] = List(8, 4, 16, 23, 42, 15)
 	
 //P26: Generate the combinatios of K distinct objects chosen from the elements of a list
 	def flatMapSublists[A,B](ls: List[A])(f: (List[A])=>List[B]): List[B] = ls match {
@@ -247,12 +252,32 @@ var lost = List(4,8,15,16,23,42)                  //> lost  : List[Int] = List(4
 		if (n ==0) List(Nil)
 		else flatMapSublists(ls) { sl => combinations(n-1, sl.tail) map {sl.head :: _}}
                                                   //> combinations: [A](n: Int, ls: List[A])List[List[A]]
-	
-	
 	combinations(2, List('a, 'b, 'c))         //> res25: List[List[Symbol]] = List(List('a, 'b), List('a, 'c), List('b, 'c))
 	
-	
-	
+//P27: Group the elements of a set into a disjoint subsets
+
+//P28: Sorting a list of list according to length of sublist
+
+
+//------------------------ARITHMETIC-------------------------------
+
+
+//P31: Determine whether a given integer number is prime
+	def isPrime(n: Int): Boolean = {
+		(for(k <- 2 until n-1) yield n % k) forall (x => x != 0)
+	}                                         //> isPrime: (n: Int)Boolean
+	 isPrime(4)                               //> res26: Boolean = false
+
+//P32: Determine the greatest common divisor of two positive integer numbers
+	def gcd(x: Int, y: Int): Int = (x,y) match{
+		case (0,y) => y
+		case (x,0) => x
+		case (x,y) => gcd(y,x%y)
+	}                                         //> gcd: (x: Int, y: Int)Int
+
+gcd(270,192)                                      //> res27: Int = 6
+
+
 	
 	}
 	
