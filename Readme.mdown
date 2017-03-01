@@ -1,0 +1,43 @@
+# 99ScalaProblems
+
+## Description
+
+This repository is a personal solution of 99 scala problems http://aperiodic.net/phil/scala/s-99/
+
+# Types
+
+* Working with lists
+* Arithmetic
+* Logic and Codes
+* Binary Trees
+* Multiway Trees
+* Graphs
+* Miscellaneous Problems
+
+## Requirements
+
+* Scala 2.11.7
+* Scala IDE 4.4.1
+* eclipse
+
+## Updates
+
+| Name           | Last Problem | Description                        |
+| -------------- | ------------- | -----------------------------------|
+|`Initial`|P26| List |
+
+
+## Example
+
+```scala
+var lost = List(4,8,15,16,23,42)                  //> lost  : List[Int] = List(4, 8, 15, 16, 23, 42)
+//P01: Find the last element of a list
+  def last(l: List[Int]): Int = {
+  	def lastIter(l: List[Int], acc: Int): Int = {
+	  	if (l isEmpty) acc
+	  	else lastIter (l.tail, l.head)
+	  }
+	  lastIter(l.tail, l.head)
+  }                                               //> last: (l: List[Int])Int
+	last (List(4,8,15,16,23,42))              //> res0: Int = 42
+```
